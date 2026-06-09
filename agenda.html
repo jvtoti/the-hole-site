@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agenda · The Hole · Programação e noites em Ribeirão Preto</title>
+  <meta name="description" content="A agenda do The Hole: noites da casa, programação semanal e ocasiões especiais com hosts convidadas. Bar gay em Ribeirão Preto. 18+" />
+  <meta name="theme-color" content="#070405" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23070405'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%23ff2f3e' stroke-width='3'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <div class="age-gate" hidden role="dialog" aria-modal="true" aria-labelledby="age-title">
+    <div class="age-card">
+      <span class="brand"><img src="assets/img/logo-the-hole-trans.png" alt="The Hole Bar Lounge" class="brand-img" width="1100" height="733" decoding="async" /></span>
+      <h2 id="age-title">Você tem 18 anos ou mais?</h2>
+      <p>Este site contém conteúdo adulto destinado a maiores de 18 anos. Ao entrar, você confirma ser maior de idade e concorda em viver a experiência com respeito e discrição.</p>
+      <div class="age-actions">
+        <button class="btn btn--primary btn--lg btn--block" data-age-enter>Entrar · tenho 18 anos ou mais</button>
+        <button class="age-leave" data-age-leave>Tenho menos de 18 · sair</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Navegação principal">
+      <a href="index.html" class="brand" aria-label="The Hole · início"><img src="assets/img/logo-the-hole-trans.png" alt="The Hole Bar Lounge" class="brand-img" width="1100" height="733" decoding="async" /></a>
+      <ul class="nav-links">
+        <li><a href="index.html" data-nav>Início</a></li>
+        <li><a href="a-casa.html" data-nav>A Casa</a></li>
+        <li><a href="agenda.html" data-nav>Agenda</a></li>
+        <li><a href="bar.html" data-nav>Bar</a></li>
+        <li><a href="contato.html" data-nav>Contato</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="reservas.html" class="btn btn--primary">Reservar <span class="arrow">&rarr;</span></a>
+      </div>
+      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer"><span></span></button>
+    </nav>
+  </header>
+
+  <div class="drawer" id="drawer">
+    <div class="wrap nav"><a href="index.html" class="brand"><img src="assets/img/logo-the-hole-trans.png" alt="The Hole Bar Lounge" class="brand-img" width="1100" height="733" decoding="async" /></a></div>
+    <ul class="drawer-links">
+      <li><a href="index.html" data-nav><span class="n">01</span> Início</a></li>
+      <li><a href="a-casa.html" data-nav><span class="n">02</span> A Casa</a></li>
+      <li><a href="agenda.html" data-nav><span class="n">03</span> Agenda</a></li>
+      <li><a href="bar.html" data-nav><span class="n">04</span> Bar</a></li>
+      <li><a href="reservas.html" data-nav><span class="n">05</span> Reservas</a></li>
+      <li><a href="contato.html" data-nav><span class="n">06</span> Contato</a></li>
+    </ul>
+    <div class="drawer-foot">
+      <span>Ribeirão Preto · SP · 18+</span>
+      <a href="reservas.html" class="btn btn--ghost">Reservar mesa</a>
+    </div>
+  </div>
+
+  <main>
+    <section class="page-head">
+      <p class="breadcrumb reveal"><a href="index.html">Início</a> · Agenda</p>
+      <h1 class="reveal">Toda noite tem <em>o seu clima</em>.</h1>
+      <p class="reveal">A programação da casa, semana a semana, mais as ocasiões especiais que valem marcar no calendário. Acompanhe as datas pelas redes e garanta o seu lugar.</p>
+    </section>
+
+    <!-- Noites da casa -->
+    <section class="section wrap">
+      <div class="reveal">
+        <span class="eyebrow">Noites da casa</span>
+        <h2 class="section-title">A rotina que ninguém quer perder.</h2>
+      </div>
+      <div class="event-list reveal">
+        <article class="event">
+          <div class="event-date"><span class="m">Quinta</span><span class="d">Open</span></div>
+          <div class="event-info"><h3>Abertura da semana</h3><p>O esquenta perfeito. Clima leve, drink na mão e as primeiras conexões da noite.</p></div>
+          <span class="event-tag">Toda quinta</span>
+        </article>
+        <article class="event">
+          <div class="event-date"><span class="m">Sexta</span><span class="d">Lounge</span></div>
+          <div class="event-info"><h3>Lounge Sessions</h3><p>Música, drinks e conversa na pegada certa para curtir sem pressa.</p></div>
+          <span class="event-tag">Toda sexta</span>
+        </article>
+        <article class="event">
+          <div class="event-date"><span class="m">Sábado</span><span class="d">Night</span></div>
+          <div class="event-info"><h3>The Hole Night</h3><p>A noite mais intensa da casa. Atmosfera no auge, do bar ao lounge.</p></div>
+          <span class="event-tag">Todo sábado</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- Ocasiões especiais -->
+    <section class="section wrap">
+      <div class="reveal">
+        <span class="eyebrow">Ocasiões especiais</span>
+        <h2 class="section-title">Datas que merecem presença.</h2>
+        <p class="section-lead">De tempos em tempos, a casa recebe hosts VIP convidadas e edições temáticas. Não vira rotina, e é justamente por isso que vale estar lá.</p>
+      </div>
+      <div class="event-list reveal">
+        <article class="event">
+          <div class="event-date"><span class="m">Especial</span><span class="d">VIP</span></div>
+          <div class="event-info"><h3>Host VIP convidada</h3><p>Presenças especiais em datas marcadas. Uma noite diferente, do início ao fim.</p></div>
+          <span class="event-tag">Em breve</span>
+        </article>
+        <article class="event">
+          <div class="event-date"><span class="m">Especial</span><span class="d">Tema</span></div>
+          <div class="event-info"><h3>Edições temáticas</h3><p>Noites com conceito próprio, cenografia e clima pensados para a ocasião.</p></div>
+          <span class="event-tag">Em breve</span>
+        </article>
+      </div>
+      <p class="section-lead reveal" style="margin-top: var(--space-lg);">
+        As próximas datas são anunciadas no <a class="text-red" href="https://instagram.com" target="_blank" rel="noopener">Instagram</a> da casa e pelo WhatsApp. Quer ser avisado em primeira mão? Fale com a gente.
+      </p>
+    </section>
+
+    <section class="section wrap">
+      <div class="cta-band reveal">
+        <span class="eyebrow is-centered">Garanta seu lugar</span>
+        <h2>Não dá para reviver uma noite que você perdeu.</h2>
+        <p>Reserve a sua mesa para a próxima noite e chegue sem preocupação com fila ou lotação.</p>
+        <a href="reservas.html" class="btn btn--primary btn--lg">Reservar mesa <span class="arrow">&rarr;</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand"><img src="assets/img/logo-the-hole-trans.png" alt="The Hole Bar Lounge" class="brand-img" width="1100" height="733" decoding="async" /></a>
+          <p>Bar e lounge para o público masculino em Ribeirão Preto. Atmosfera, encontro e liberdade.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegue</h4>
+          <ul>
+            <li><a href="a-casa.html">A Casa</a></li>
+            <li><a href="agenda.html">Agenda</a></li>
+            <li><a href="bar.html">Bar</a></li>
+            <li><a href="reservas.html">Reservas</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Visite</h4>
+          <ul>
+            <li><a href="contato.html">Ribeirão Preto · SP</a></li>
+            <li><a href="https://wa.me/5511978590128" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="reservas.html">Reservar mesa</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span data-year></span> The Hole · Todos os direitos reservados · Acesso somente para maiores de 18 anos</span>
+        <span class="by">Criado pela <b>Cítara Marketing IA</b></span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reservas · The Hole · Mesa, camarote e aniversário</title>
+  <meta name="description" content="Reserve mesa, camarote, aniversário ou evento privado no The Hole, em Ribeirão Preto. Em segundos, direto pelo WhatsApp. 18+" />
+  <meta name="theme-color" content="#070405" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23070405'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%23ff2f3e' stroke-width='3'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <div class="age-gate" hidden role="dialog" aria-modal="true" aria-labelledby="age-title">
+    <div class="age-card">
+      <span class="brand"><img src="assets/img/logo-the-hole-trans.png" alt="The Hole Bar Lounge" class="brand-img" width="1100" height="733" decoding="async" /></span>
+      <h2 id="age-title">Você tem 18 anos ou mais?</h2>
+      <p>Este site contém conteúdo adulto destinado a maiores de 18 anos. Ao entrar, você confirma ser maior de idade e concorda em viver a experiência com respeito e discrição.</p>
+      <div class="age-actions">
+        <button class="btn btn--primary btn--lg btn--block" data-age-enter>Entrar · tenho 18 anos ou mais</button>
+        <button class="age-leave" data-age-leave>Tenho menos de 18 · sair</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Navegação principal">
+      <a href="index.html" class="brand" aria-label="The Hole · início"><img src="assets/img/logo-the-hole-trans.png" alt="The Hole Bar Lounge" class="brand-img" width="1100" height="733" decoding="async" /></a>
+      <ul class="nav-links">
+        <li><a href="index.html" data-nav>Início</a></li>
+        <li><a href="a-casa.html" data-nav>A Casa</a></li>
+        <li><a href="agenda.html" data-nav>Agenda</a></li>
+        <li><a href="bar.html" data-nav>Bar</a></li>
+        <li><a href="contato.html" data-nav>Contato</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="reservas.html" class="btn btn--primary">Reservar <span class="arrow">&rarr;</span></a>
+      </div>
+      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer"><span></span></button>
+    </nav>
+  </header>
+
+  <div class="drawer" id="drawer">
+    <div class="wrap nav"><a href="index.html" class="brand"><img src="assets/img/logo-the-hole-trans.png" alt="The Hole Bar Lounge" class="brand-img" width="1100" height="733" decoding="async" /></a></div>
+    <ul class="drawer-links">
+      <li><a href="index.html" data-nav><span class="n">01</span> Início</a></li>
+      <li><a href="a-casa.html" data-nav><span class="n">02</span> A Casa</a></li>
+      <li><a href="agenda.html" data-nav><span class="n">03</span> Agenda</a></li>
+      <li><a href="bar.html" data-nav><span class="n">04</span> Bar</a></li>
+      <li><a href="reservas.html" data-nav><span class="n">05</span> Reservas</a></li>
+      <li><a href="contato.html" data-nav><span class="n">06</span> Contato</a></li>
+    </ul>
+    <div class="drawer-foot">
+      <span>Ribeirão Preto · SP · 18+</span>
+      <a href="reservas.html" class="btn btn--ghost">Reservar mesa</a>
+    </div>
+  </div>
+
+  <main>
+    <section class="page-head">
+      <p class="breadcrumb reveal"><a href="index.html">Início</a> · Reservas</p>
+      <h1 class="reveal">Garanta o seu <em>lugar</em>.</h1>
+      <p class="reveal">Preencha em segundos e envie direto para o nosso WhatsApp. Confirmamos a sua reserva por lá.</p>
+    </section>
+
+    <section class="section wrap">
+      <div class="reserve-layout">
+        <!-- Form -->
+        <form class="reveal" data-reserve-form novalidate>
+          <fieldset style="border:0; padding:0; margin:0 0 var(--space-md);">
+            <legend class="field"><label as="span">O que você quer reservar?</label></legend>
+            <div class="choice-grid">
+              <label class="choice">
+                <input type="radio" name="tipo" value="Mesa" checked />
+                <div class="c-title">Mesa</div>
+                <div class="c-desc">Para curtir o bar e o lounge.</div>
+              </label>
+              <label class="choice">
+                <input type="radio" name="tipo" value="Camarote" />
+                <div class="c-title">Camarote</div>
+                <div class="c-desc">Mais privacidade e conforto.</div>
+              </label>
+              <label class="choice">
+                <input type="radio" name="tipo" value="Aniversário" />
+                <div class="c-title">Aniversário</div>
+                <div class="c-desc">Comemore com a sua turma.</div>
+              </label>
+              <label class="choice">
+                <input type="radio" name="tipo" value="Evento privado" />
+                <div class="c-title">Evento privado</div>
+                <div class="c-desc">A casa a serviço da sua ocasião.</div>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="nome">Seu nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Como podemos te chamar" autocomplete="name" required />
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="pessoas">Quantas pessoas</label>
+              <input type="number" id="pessoas" name="pessoas" min="1" placeholder="Ex: 4" />
+            </div>
+            <div class="field">
+              <label for="data">Data desejada</label>
+              <input type="date" id="data" name="data" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="mensagem">Observações (opcional)</label>
+            <textarea id="mensagem" name="mensagem" placeholder="Horário aproximado, ocasião, pedidos especiais..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--lg btn--block">
+            Enviar reserva pelo WhatsApp <span class="arrow">&rarr;</span>
+          </button>
+          <p style="margin-top: var(--space-sm); color: var(--ink-mute); font-size: var(--text-xs);">
+            Ao enviar, abrimos o WhatsApp com a sua mensagem pronta. A reserva é confirmada na conversa.
+          </p>
+        </form>
+
+        <!-- Aside: política -->
+        <aside class="reserve-aside reveal">
+          <span class="eyebrow">Como funciona</span>
+          <h3>Reserva simples, sem complicação.</h3>
+          <ul>
+            <li><span class="idx">01</span> <span>Escolha o tipo, preencha os dados e envie. Sua mensagem chega pronta no nosso WhatsApp.</span></li>
+            <li><span class="idx">02</span> <span>A gente confirma disponibilidade e detalhes por lá, na conversa.</span></li>
+            <li><span class="idx">03</span> <span>É só chegar na noite escolhida. Lembre do documento: acesso para maiores de 18 anos.</span></li>
+          </ul>
+          <hr class="hairline" />
+          <p style="color: var(--ink-mute); font-size: var(--text-sm);">
+            Reservas sujeitas à disponibilidade e à política da casa. Camarotes e eventos privados podem ter
+            condições específicas, combinadas no atendimento.
+          </p>
+          <a class="btn btn--ghost btn--block" href="https://wa.me/5511978590128" target="_blank" rel="noopener">Falar direto no WhatsApp</a>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand"><img src="assets/img/logo-the-hole-trans.png" alt="The Hole Bar Lounge" class="brand-img" width="1100" height="733" decoding="async" /></a>
+          <p>Bar e lounge para o público masculino em Ribeirão Preto. Atmosfera, encontro e liberdade.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegue</h4>
+          <ul>
+            <li><a href="a-casa.html">A Casa</a></li>
+            <li><a href="agenda.html">Agenda</a></li>
+            <li><a href="bar.html">Bar</a></li>
+            <li><a href="reservas.html">Reservas</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Visite</h4>
+          <ul>
+            <li><a href="contato.html">Ribeirão Preto · SP</a></li>
+            <li><a href="https://wa.me/5511978590128" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="reservas.html">Reservar mesa</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span data-year></span> The Hole · Todos os direitos reservados · Acesso somente para maiores de 18 anos</span>
+        <span class="by">Criado pela <b>Cítara Marketing IA</b></span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
