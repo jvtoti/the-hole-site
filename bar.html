@@ -55,7 +55,8 @@
       <li><a href="agenda.html" data-nav><span class="n">03</span> Agenda</a></li>
       <li><a href="bar.html" data-nav><span class="n">04</span> Bar</a></li>
       <li><a href="reservas.html" data-nav><span class="n">05</span> Reservas</a></li>
-      <li><a href="contato.html" data-nav><span class="n">06</span> Contato</a></li>
+      <li><a href="clube.html" data-nav><span class="n">06</span> Clube</a></li>
+      <li><a href="contato.html" data-nav><span class="n">07</span> Contato</a></li>
     </ul>
     <div class="drawer-foot">
       <span>Ribeirão Preto · SP · 18+</span>
@@ -93,58 +94,112 @@
         <p class="section-lead">Cervejas, drinks e não alcoólicos, sempre gelados. Valores por lata.</p>
       </div>
 
-      <div class="carta-layout">
+      <div class="reveal" style="margin-top:var(--space-xl);">
 
-        <!-- Torre de fotos · esquerda (sticky no desktop) -->
-        <aside class="carta-rail carta-rail--left">
-          <figure class="carta-shot shot reveal">
-            <img src="assets/img/real-bar.jpg" alt="O balcão de mármore do The Hole sob o neon azul" width="1050" height="1400" loading="lazy" decoding="async" />
-            <figcaption class="carta-cap">O balcão, mármore e neon</figcaption>
-          </figure>
-          <figure class="carta-shot shot reveal" style="--reveal-delay: 90ms;">
-            <img src="assets/img/real-corredor.jpg" alt="Corredor em luz vermelha do The Hole" width="1050" height="1400" loading="lazy" decoding="async" />
-            <figcaption class="carta-cap">O corredor, entre os ambientes</figcaption>
-          </figure>
-        </aside>
-
-        <!-- Carta · centro (itens e preços reais, intactos) -->
-        <div class="carta-menu">
-          <div class="menu-group reveal">
-            <h3>Cervejas</h3>
-            <div class="menu-item"><div class="mi-name">Skol Beats</div></div>
-            <div class="menu-item"><div class="mi-name">Heineken</div></div>
-            <div class="menu-item"><div class="mi-name">Budweiser</div></div>
-            <div class="menu-item"><div class="mi-name">Itaipava sem álcool</div></div>
-            <div class="menu-item"><div class="mi-name">Império</div></div>
-          </div>
-
-          <div class="menu-group reveal">
-            <h3>Drinks</h3>
-            <div class="menu-item"><div class="mi-name">Smirnoff Ice</div></div>
-            <div class="menu-item"><div class="mi-name">Vodka Absolut</div></div>
-            <div class="menu-item"><div class="mi-name">Energético Baly</div></div>
-          </div>
-
-          <div class="menu-group reveal">
-            <h3>Não alcoólicos</h3>
-            <div class="menu-item"><div class="mi-name">Coca-Cola</div></div>
-            <div class="menu-item"><div class="mi-name">Guaraná</div></div>
-            <div class="menu-item"><div class="mi-name">Suco</div></div>
-            <div class="menu-item"><div class="mi-name">Água</div></div>
+        <!-- Cervejas -->
+        <div style="margin-bottom:var(--space-2xl);">
+          <p style="font-family:var(--font-display);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.16em;color:var(--ink-mute);margin-bottom:var(--space-md);padding-bottom:0.6rem;border-bottom:1px solid rgba(255,255,255,0.1);">Cervejas</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1rem;">
+            <article style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;overflow:hidden;">
+              <div style="aspect-ratio:1;background:linear-gradient(145deg,#0d0700,#1c1000);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                <img src="assets/img/drinks/skol-beats.jpg" alt="Skol Beats" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'" />
+                <span style="font-size:3.5rem;filter:drop-shadow(0 2px 12px rgba(0,0,0,.6));" aria-hidden="true">🍺</span>
+              </div>
+              <div style="padding:0.8rem 0.85rem 0.9rem;"><p style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin:0;">Skol Beats</p></div>
+            </article>
+            <article style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;overflow:hidden;">
+              <div style="aspect-ratio:1;background:linear-gradient(145deg,#03100a,#052015);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                <img src="assets/img/drinks/heineken.jpg" alt="Heineken" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'" />
+                <span style="font-size:3.5rem;filter:drop-shadow(0 2px 12px rgba(0,0,0,.6));" aria-hidden="true">🍺</span>
+              </div>
+              <div style="padding:0.8rem 0.85rem 0.9rem;"><p style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin:0;">Heineken</p></div>
+            </article>
+            <article style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;overflow:hidden;">
+              <div style="aspect-ratio:1;background:linear-gradient(145deg,#110004,#20000a);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                <img src="assets/img/drinks/budweiser.jpg" alt="Budweiser" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'" />
+                <span style="font-size:3.5rem;filter:drop-shadow(0 2px 12px rgba(0,0,0,.6));" aria-hidden="true">🍺</span>
+              </div>
+              <div style="padding:0.8rem 0.85rem 0.9rem;"><p style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin:0;">Budweiser</p></div>
+            </article>
+            <article style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;overflow:hidden;">
+              <div style="aspect-ratio:1;background:linear-gradient(145deg,#030810,#06101c);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                <img src="assets/img/drinks/itaipava-sem-alcool.jpg" alt="Itaipava sem álcool" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'" />
+                <span style="font-size:3.5rem;filter:drop-shadow(0 2px 12px rgba(0,0,0,.6));" aria-hidden="true">🍺</span>
+              </div>
+              <div style="padding:0.8rem 0.85rem 0.9rem;"><p style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin:0;">Itaipava s/ álcool</p></div>
+            </article>
+            <article style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;overflow:hidden;">
+              <div style="aspect-ratio:1;background:linear-gradient(145deg,#100900,#1e1400);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                <img src="assets/img/drinks/imperio.jpg" alt="Império" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'" />
+                <span style="font-size:3.5rem;filter:drop-shadow(0 2px 12px rgba(0,0,0,.6));" aria-hidden="true">🍺</span>
+              </div>
+              <div style="padding:0.8rem 0.85rem 0.9rem;"><p style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin:0;">Império</p></div>
+            </article>
           </div>
         </div>
 
-        <!-- Torre de fotos · direita (sticky no desktop) -->
-        <aside class="carta-rail carta-rail--right">
-          <figure class="carta-shot shot reveal">
-            <img src="assets/img/real-salao.jpg" alt="O salão lounge do The Hole banhado em luz azul" width="1050" height="1400" loading="lazy" decoding="async" />
-            <figcaption class="carta-cap">O salão, onde a noite acontece</figcaption>
-          </figure>
-          <figure class="carta-shot shot reveal" style="--reveal-delay: 90ms;">
-            <img src="assets/img/real-entrada.jpg" alt="Entrada do The Hole com a parede verde" width="1050" height="1400" loading="lazy" decoding="async" />
-            <figcaption class="carta-cap">A entrada, o primeiro gole da noite</figcaption>
-          </figure>
-        </aside>
+        <!-- Drinks -->
+        <div style="margin-bottom:var(--space-2xl);">
+          <p style="font-family:var(--font-display);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.16em;color:var(--ink-mute);margin-bottom:var(--space-md);padding-bottom:0.6rem;border-bottom:1px solid rgba(255,255,255,0.1);">Drinks</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1rem;">
+            <article style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;overflow:hidden;">
+              <div style="aspect-ratio:1;background:linear-gradient(145deg,#030612,#07102a);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                <img src="assets/img/drinks/smirnoff-ice.jpg" alt="Smirnoff Ice" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'" />
+                <span style="font-size:3.5rem;filter:drop-shadow(0 2px 12px rgba(0,0,0,.6));" aria-hidden="true">🍹</span>
+              </div>
+              <div style="padding:0.8rem 0.85rem 0.9rem;"><p style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin:0;">Smirnoff Ice</p></div>
+            </article>
+            <article style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;overflow:hidden;">
+              <div style="aspect-ratio:1;background:linear-gradient(145deg,#06030e,#0e0620);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                <img src="assets/img/drinks/vodka-absolut.jpg" alt="Vodka Absolut" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'" />
+                <span style="font-size:3.5rem;filter:drop-shadow(0 2px 12px rgba(0,0,0,.6));" aria-hidden="true">🍸</span>
+              </div>
+              <div style="padding:0.8rem 0.85rem 0.9rem;"><p style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin:0;">Vodka Absolut</p></div>
+            </article>
+            <article style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;overflow:hidden;">
+              <div style="aspect-ratio:1;background:linear-gradient(145deg,#0f0e00,#1e1c00);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                <img src="assets/img/drinks/energetico-baly.jpg" alt="Energético Baly" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'" />
+                <span style="font-size:3.5rem;filter:drop-shadow(0 2px 12px rgba(0,0,0,.6));" aria-hidden="true">⚡</span>
+              </div>
+              <div style="padding:0.8rem 0.85rem 0.9rem;"><p style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin:0;">Energético Baly</p></div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Não alcoólicos -->
+        <div>
+          <p style="font-family:var(--font-display);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.16em;color:var(--ink-mute);margin-bottom:var(--space-md);padding-bottom:0.6rem;border-bottom:1px solid rgba(255,255,255,0.1);">Não alcoólicos</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1rem;">
+            <article style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;overflow:hidden;">
+              <div style="aspect-ratio:1;background:linear-gradient(145deg,#110004,#1e000a);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                <img src="assets/img/drinks/coca-cola.jpg" alt="Coca-Cola" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'" />
+                <span style="font-size:3.5rem;filter:drop-shadow(0 2px 12px rgba(0,0,0,.6));" aria-hidden="true">🥤</span>
+              </div>
+              <div style="padding:0.8rem 0.85rem 0.9rem;"><p style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin:0;">Coca-Cola</p></div>
+            </article>
+            <article style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;overflow:hidden;">
+              <div style="aspect-ratio:1;background:linear-gradient(145deg,#030e05,#051c09);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                <img src="assets/img/drinks/guarana.jpg" alt="Guaraná" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'" />
+                <span style="font-size:3.5rem;filter:drop-shadow(0 2px 12px rgba(0,0,0,.6));" aria-hidden="true">🥤</span>
+              </div>
+              <div style="padding:0.8rem 0.85rem 0.9rem;"><p style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin:0;">Guaraná</p></div>
+            </article>
+            <article style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;overflow:hidden;">
+              <div style="aspect-ratio:1;background:linear-gradient(145deg,#0e0600,#1c0e00);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                <img src="assets/img/drinks/suco.jpg" alt="Suco" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'" />
+                <span style="font-size:3.5rem;filter:drop-shadow(0 2px 12px rgba(0,0,0,.6));" aria-hidden="true">🧃</span>
+              </div>
+              <div style="padding:0.8rem 0.85rem 0.9rem;"><p style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin:0;">Suco</p></div>
+            </article>
+            <article style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;overflow:hidden;">
+              <div style="aspect-ratio:1;background:linear-gradient(145deg,#000e12,#001a22);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                <img src="assets/img/drinks/agua.jpg" alt="Água" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'" />
+                <span style="font-size:3.5rem;filter:drop-shadow(0 2px 12px rgba(0,0,0,.6));" aria-hidden="true">💧</span>
+              </div>
+              <div style="padding:0.8rem 0.85rem 0.9rem;"><p style="font-family:var(--font-display);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin:0;">Água</p></div>
+            </article>
+          </div>
+        </div>
 
       </div>
 
@@ -171,6 +226,7 @@
             <li><a href="agenda.html">Agenda</a></li>
             <li><a href="bar.html">Bar</a></li>
             <li><a href="reservas.html">Reservas</a></li>
+            <li><a href="clube.html">Clube</a></li>
             <li><a href="contato.html">Contato</a></li>
           </ul>
         </div>
