@@ -114,11 +114,11 @@
         <h2 class="section-title">Por aqui, cada ambiente conta algo.</h2>
       </div>
       <div class="gallery reveal">
-        <figure class="shot"><img src="assets/img/real-salao.jpg" alt="Salão lounge do The Hole" loading="lazy" /></figure>
-        <figure class="shot"><img src="assets/img/real-lounge-azul.jpg" alt="Lounge do The Hole em luz azul" loading="lazy" /></figure>
-        <figure class="shot"><img src="assets/img/real-bar.jpg" alt="O bar do The Hole" loading="lazy" /></figure>
-        <figure class="shot"><img src="assets/img/real-lounge-vermelho.jpg" alt="Lounge vermelho com poltronas de veludo" loading="lazy" /></figure>
-        <figure class="shot"><img src="assets/img/real-entrada.jpg" alt="Entrada do The Hole" loading="lazy" /></figure>
+        <figure class="shot gallery-item" data-lightbox><img src="assets/img/real-salao.jpg" alt="Salão lounge do The Hole" loading="lazy" /><figcaption>O salão — onde tudo começa e nada termina cedo.</figcaption></figure>
+        <figure class="shot gallery-item" data-lightbox><img src="assets/img/real-lounge-azul.jpg" alt="Lounge do The Hole em luz azul" loading="lazy" /><figcaption>O lounge azul — clima de encontro, conversa e o que mais vier.</figcaption></figure>
+        <figure class="shot gallery-item" data-lightbox><img src="assets/img/real-bar.jpg" alt="O bar do The Hole" loading="lazy" /><figcaption>O bar — o primeiro gole sempre abre as portas certas.</figcaption></figure>
+        <figure class="shot gallery-item" data-lightbox><img src="assets/img/real-lounge-vermelho.jpg" alt="Lounge vermelho com poltronas de veludo" loading="lazy" /><figcaption>O lounge vermelho — poltronas, penumbra e liberdade total.</figcaption></figure>
+        <figure class="shot gallery-item" data-lightbox><img src="assets/img/real-entrada.jpg" alt="Entrada do The Hole" loading="lazy" /><figcaption>A entrada — o começo da melhor noite que você não vai contar.</figcaption></figure>
       </div>
     </section>
 
@@ -126,9 +126,9 @@
     <section class="section wrap">
       <div class="safe-space reveal">
         <div>
-          <span class="eyebrow">Safe space</span>
+          <span class="eyebrow">Espaço seguro</span>
           <h2 class="section-title">Um lugar seguro, para ser quem você é.</h2>
-          <p class="section-lead">O The Hole é uma casa para o público masculino LGBTQIA+. Aqui, respeito não é regra escrita na parede, é a base de tudo. Para todos viverem bem, alguns combinados:</p>
+          <p class="section-lead">O The Hole é uma casa para o público masculino gay. Aqui, respeito não é regra escrita na parede, é a base de tudo. Para todos viverem bem, alguns combinados:</p>
         </div>
         <ul>
           <li>Respeito sempre. Não é não, e o limite do outro é inegociável.</li>
@@ -172,7 +172,8 @@
           <ul>
             <li><a href="contato.html">Ribeirão Preto · SP</a></li>
             <li><a href="https://wa.me/5511978590128" target="_blank" rel="noopener">WhatsApp</a></li>
-            <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.instagram.com/the.hole.rp/" target="_blank" rel="noopener">@the.hole.rp</a></li>
+            <li><a href="https://x.com/the_hole_rp" target="_blank" rel="noopener">@the_hole_rp</a></li>
             <li><a href="reservas.html">Reservar mesa</a></li>
           </ul>
         </div>
@@ -184,5 +185,29 @@
     </div>
   </footer>
 
+  <!-- Lightbox -->
+  <div id="lightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;cursor:zoom-out;align-items:center;justify-content:center;" aria-modal="true" role="dialog">
+    <img id="lightbox-img" src="" alt="" style="max-width:92vw;max-height:90vh;object-fit:contain;border-radius:6px;box-shadow:0 0 60px rgba(0,0,0,.8);" />
+    <button id="lightbox-close" aria-label="Fechar" style="position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1;">&times;</button>
+  </div>
+  <script>
+    (function(){
+      var lb = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lightbox-img');
+      document.querySelectorAll('[data-lightbox] img').forEach(function(img){
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', function(){
+          lbImg.src = img.src;
+          lbImg.alt = img.alt;
+          lb.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        });
+      });
+      function closeLb(){ lb.style.display='none'; document.body.style.overflow=''; }
+      document.getElementById('lightbox-close').addEventListener('click', closeLb);
+      lb.addEventListener('click', function(e){ if(e.target===lb) closeLb(); });
+      document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeLb(); });
+    })();
+  </script>
 </body>
 </html>
