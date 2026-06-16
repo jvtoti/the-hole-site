@@ -148,15 +148,15 @@
       const dataReserva = get("data");
       const obs = get("mensagem");
 
-      let msg = "Olá, The Hole! Quero fazer uma reserva.%0A%0A";
-      msg += "*Tipo:* " + tipo + "%0A";
-      if (nome) msg += "*Nome:* " + nome + "%0A";
-      if (pessoas) msg += "*Pessoas:* " + pessoas + "%0A";
-      if (dataReserva) msg += "*Data:* " + dataReserva + "%0A";
-      if (obs) msg += "*Observações:* " + obs + "%0A";
+      let msg = "Olá, The Hole! Quero fazer uma reserva.\n\n";
+      msg += "*Tipo:* " + tipo + "\n";
+      if (nome) msg += "*Nome:* " + nome + "\n";
+      if (pessoas) msg += "*Pessoas:* " + pessoas + "\n";
+      if (dataReserva) msg += "*Data:* " + dataReserva + "\n";
+      if (obs) msg += "*Observações:* " + obs + "\n";
 
       const url =
-        "https://wa.me/" + WHATSAPP + "?text=" + encodeURI(msg).replace(/#/g, "%23");
+        "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg);
       window.open(url, "_blank", "noopener");
     });
   }
