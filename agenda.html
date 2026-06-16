@@ -77,17 +77,17 @@
         <h2 class="section-title">A rotina que ninguém quer perder.</h2>
       </div>
       <div class="event-list reveal">
-        <article class="event">
+        <article class="event" data-flyer="assets/img/flyer-quinta.jpg" style="cursor:pointer;" title="Ver flyer">
           <div class="event-date"><span class="m">Quinta</span><span class="d">Open</span></div>
           <div class="event-info"><h3>Abertura da semana</h3><p>O esquenta perfeito. Clima leve, drink na mão e as primeiras conexões da noite.</p></div>
           <span class="event-tag">Toda quinta</span>
         </article>
-        <article class="event">
+        <article class="event" data-flyer="assets/img/flyer-sexta.jpg" style="cursor:pointer;" title="Ver flyer">
           <div class="event-date"><span class="m">Sexta</span><span class="d">Lounge</span></div>
           <div class="event-info"><h3>Lounge Sessions</h3><p>Música, drinks e conversa na pegada certa para curtir sem pressa.</p></div>
           <span class="event-tag">Toda sexta</span>
         </article>
-        <article class="event">
+        <article class="event" data-flyer="assets/img/flyer-sabado.jpg" style="cursor:pointer;" title="Ver flyer">
           <div class="event-date"><span class="m">Sábado</span><span class="d">Night</span></div>
           <div class="event-info"><h3>The Hole Night</h3><p>A noite mais intensa da casa. Atmosfera no auge, do bar ao lounge.</p></div>
           <span class="event-tag">Todo sábado</span>
@@ -115,7 +115,7 @@
         </article>
       </div>
       <p class="section-lead reveal" style="margin-top: var(--space-lg);">
-        As próximas datas são anunciadas no <a class="text-red" href="https://instagram.com" target="_blank" rel="noopener">Instagram</a> da casa e pelo WhatsApp. Quer ser avisado em primeira mão? Fale com a gente.
+        As próximas datas são anunciadas no <a class="text-red" href="https://www.instagram.com/the.hole.rp/" target="_blank" rel="noopener">Instagram</a> da casa e pelo WhatsApp. Quer ser avisado em primeira mão? Fale com a gente.
       </p>
     </section>
 
@@ -134,7 +134,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="brand"><img src="assets/img/logo-the-hole-trans.png" alt="The Hole Bar Lounge" class="brand-img" width="1100" height="733" decoding="async" /></a>
-          <p>Bar e lounge para o público masculino em Ribeirão Preto. Atmosfera, encontro e liberdade.</p>
+          <p>Bar e lounge para o público masculino gay em Ribeirão Preto. Atmosfera, encontro e liberdade.</p>
         </div>
         <div class="footer-col">
           <h4>Navegue</h4>
@@ -164,5 +164,28 @@
     </div>
   </footer>
 
+  <!-- Lightbox flyer -->
+  <div id="flyer-lb" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:9999;cursor:zoom-out;align-items:center;justify-content:center;" aria-modal="true" role="dialog">
+    <img id="flyer-lb-img" src="" alt="Flyer do evento" style="max-width:92vw;max-height:90vh;object-fit:contain;border-radius:8px;box-shadow:0 0 60px rgba(0,0,0,.8);" />
+    <button id="flyer-lb-close" aria-label="Fechar" style="position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1;">&times;</button>
+  </div>
+  <script>
+    (function(){
+      var lb = document.getElementById('flyer-lb');
+      var lbImg = document.getElementById('flyer-lb-img');
+      document.querySelectorAll('[data-flyer]').forEach(function(el){
+        el.addEventListener('click', function(){
+          var src = el.getAttribute('data-flyer');
+          lbImg.src = src;
+          lb.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        });
+      });
+      function close(){ lb.style.display='none'; document.body.style.overflow=''; lbImg.src=''; }
+      document.getElementById('flyer-lb-close').addEventListener('click', close);
+      lb.addEventListener('click', function(e){ if(e.target===lb) close(); });
+      document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+    })();
+  </script>
 </body>
 </html>
