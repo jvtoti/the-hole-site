@@ -15,6 +15,23 @@
   <link rel="stylesheet" href="css/components.css" />
   <link rel="stylesheet" href="css/pages.css" />
   <script src="js/main.js" defer></script>
+  <style>
+    #lb{position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.93);display:flex;align-items:center;justify-content:center;padding:1rem;}
+    #lb[hidden]{display:none;}
+    #lb-figure{max-width:90vw;max-height:90vh;display:flex;flex-direction:column;align-items:center;gap:.75rem;}
+    #lb-img{max-width:100%;max-height:82vh;object-fit:contain;border-radius:6px;user-select:none;-webkit-user-drag:none;}
+    #lb-cap{color:rgba(255,255,255,.6);font-size:.875rem;text-align:center;max-width:60ch;line-height:1.5;}
+    #lb-counter{position:absolute;top:1rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.4);font-size:.78rem;font-family:monospace;white-space:nowrap;}
+    #lb-close{position:absolute;top:.75rem;right:1.25rem;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1;padding:.25rem .5rem;opacity:.6;transition:opacity .15s;}
+    #lb-close:hover{opacity:1;}
+    #lb-prev,#lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);color:#fff;font-size:2.5rem;cursor:pointer;padding:.4rem .9rem;border-radius:6px;transition:background .15s;line-height:1;user-select:none;}
+    #lb-prev{left:.75rem;}#lb-next{right:.75rem;}
+    #lb-prev:hover,#lb-next:hover{background:rgba(255,26,26,.35);}
+    @media(max-width:600px){#lb-prev,#lb-next{font-size:1.8rem;padding:.3rem .6rem;}}
+    .gallery-item{cursor:pointer;}
+    .gallery-item img{transition:opacity .2s;}
+    .gallery-item:hover img{opacity:.82;}
+  </style>
 </head>
 <body>
 
@@ -141,6 +158,54 @@
         <figure class="shot gallery-item" data-lightbox>
           <img src="assets/img/real-entrada.jpg" alt="Entrada do The Hole" loading="lazy" />
           <figcaption>A entrada — onde a cidade fica lá fora e a noite começa de verdade.</figcaption>
+        </figure>
+        <figure class="shot gallery-item" data-lightbox>
+          <img src="assets/img/terreo-1.jpg" alt="Térreo do The Hole" loading="lazy" />
+          <figcaption>Térreo — o salão que recebe a noite.</figcaption>
+        </figure>
+        <figure class="shot gallery-item" data-lightbox>
+          <img src="assets/img/terreo-2.jpg" alt="Térreo do The Hole" loading="lazy" />
+          <figcaption>Térreo — ambiente e atmosfera.</figcaption>
+        </figure>
+        <figure class="shot gallery-item" data-lightbox>
+          <img src="assets/img/terreo-3.jpg" alt="Térreo do The Hole" loading="lazy" />
+          <figcaption>Térreo — espaço para se encontrar.</figcaption>
+        </figure>
+        <figure class="shot gallery-item" data-lightbox>
+          <img src="assets/img/terreo-4.jpg" alt="Térreo do The Hole" loading="lazy" />
+          <figcaption>Térreo — música e liberdade.</figcaption>
+        </figure>
+        <figure class="shot gallery-item" data-lightbox>
+          <img src="assets/img/terreo-5.jpg" alt="Térreo do The Hole" loading="lazy" />
+          <figcaption>Térreo — onde a noite começa.</figcaption>
+        </figure>
+        <figure class="shot gallery-item" data-lightbox>
+          <img src="assets/img/terreo-6.jpg" alt="Térreo do The Hole" loading="lazy" />
+          <figcaption>Térreo — drinks e conversa.</figcaption>
+        </figure>
+        <figure class="shot gallery-item" data-lightbox>
+          <img src="assets/img/terreo-7.jpg" alt="Térreo do The Hole" loading="lazy" />
+          <figcaption>Térreo — o lounge social.</figcaption>
+        </figure>
+        <figure class="shot gallery-item" data-lightbox>
+          <img src="assets/img/terreo-8.jpg" alt="Térreo do The Hole" loading="lazy" />
+          <figcaption>Térreo — encontros que ficam na memória.</figcaption>
+        </figure>
+        <figure class="shot gallery-item" data-lightbox>
+          <img src="assets/img/terreo-9.jpg" alt="Térreo do The Hole" loading="lazy" />
+          <figcaption>Térreo — o coração da casa.</figcaption>
+        </figure>
+        <figure class="shot gallery-item" data-lightbox>
+          <img src="assets/img/terreo-10.jpg" alt="Térreo do The Hole" loading="lazy" />
+          <figcaption>Térreo — ambiente acolhedor.</figcaption>
+        </figure>
+        <figure class="shot gallery-item" data-lightbox>
+          <img src="assets/img/terreo-11.jpg" alt="Térreo do The Hole" loading="lazy" />
+          <figcaption>Térreo — para quem chega com vontade de curtir.</figcaption>
+        </figure>
+        <figure class="shot gallery-item" data-lightbox>
+          <img src="assets/img/terreo-12.jpg" alt="Térreo do The Hole" loading="lazy" />
+          <figcaption>Térreo — a noite começa aqui.</figcaption>
         </figure>
       </div>
 
@@ -310,6 +375,66 @@
       lb.addEventListener('click', function(e){ if(e.target===lb) closeLb(); });
       document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeLb(); });
     })();
+  </script>
+  <!-- Lightbox -->
+  <div id="lb" role="dialog" aria-modal="true" aria-label="Galeria de fotos" hidden>
+    <button id="lb-close" aria-label="Fechar">&times;</button>
+    <button id="lb-prev" aria-label="Foto anterior">&#8249;</button>
+    <figure id="lb-figure">
+      <img id="lb-img" src="" alt="" />
+      <figcaption id="lb-cap"></figcaption>
+    </figure>
+    <button id="lb-next" aria-label="Próxima foto">&#8250;</button>
+    <div id="lb-counter"></div>
+  </div>
+  <script>
+  (function(){
+    var lb=document.getElementById('lb'),
+        lbImg=document.getElementById('lb-img'),
+        lbCap=document.getElementById('lb-cap'),
+        lbCounter=document.getElementById('lb-counter'),
+        items=[],cur=0,touchX=0;
+
+    function groupOf(el){
+      var g=el.closest('.gallery');
+      return g?Array.from(g.querySelectorAll('[data-lightbox]')):[el];
+    }
+    function show(idx){
+      cur=(idx+items.length)%items.length;
+      var fig=items[cur],img=fig.querySelector('img'),cap=fig.querySelector('figcaption');
+      lbImg.src=img.src; lbImg.alt=img.alt;
+      lbCap.textContent=cap?cap.textContent:'';
+      lbCounter.textContent=(cur+1)+' / '+items.length;
+    }
+    function open(el){
+      items=groupOf(el); cur=items.indexOf(el);
+      show(cur); lb.hidden=false;
+      document.body.classList.add('no-scroll');
+    }
+    function close(){
+      lb.hidden=true;
+      document.body.classList.remove('no-scroll');
+      lbImg.src='';
+    }
+    document.querySelectorAll('[data-lightbox]').forEach(function(fig){
+      fig.addEventListener('click',function(){open(fig);});
+    });
+    document.getElementById('lb-close').addEventListener('click',close);
+    document.getElementById('lb-prev').addEventListener('click',function(){show(cur-1);});
+    document.getElementById('lb-next').addEventListener('click',function(){show(cur+1);});
+    lb.addEventListener('click',function(e){if(e.target===lb)close();});
+    document.addEventListener('keydown',function(e){
+      if(lb.hidden)return;
+      if(e.key==='Escape')close();
+      if(e.key==='ArrowLeft')show(cur-1);
+      if(e.key==='ArrowRight')show(cur+1);
+    });
+    lb.addEventListener('touchstart',function(e){touchX=e.touches[0].clientX;},{passive:true});
+    lb.addEventListener('touchend',function(e){
+      var dx=e.changedTouches[0].clientX-touchX;
+      if(Math.abs(dx)>50){dx<0?show(cur+1):show(cur-1);}
+    },{passive:true});
+  })();
   </script>
 </body>
 </html>
