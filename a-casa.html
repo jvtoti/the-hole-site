@@ -16,19 +16,18 @@
   <link rel="stylesheet" href="css/pages.css" />
   <script src="js/main.js" defer></script>
   <style>
-    #lb{position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.93);display:flex;align-items:center;justify-content:center;padding:1rem;}
+    #lb{position:fixed;inset:0;z-index:9999;background:#000;overflow:hidden;}
     #lb[hidden]{display:none;}
-    #lb-figure{max-width:90vw;max-height:90vh;display:flex;flex-direction:column;align-items:center;gap:.75rem;}
-    #lb-img{max-width:100%;max-height:82vh;object-fit:contain;border-radius:6px;user-select:none;-webkit-user-drag:none;}
-    #lb-cap{color:rgba(255,255,255,.6);font-size:.875rem;text-align:center;max-width:60ch;line-height:1.5;}
-    #lb-counter{position:absolute;top:1rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.4);font-size:.78rem;font-family:monospace;white-space:nowrap;}
-    #lb-close{position:absolute;top:.75rem;right:1.25rem;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1;padding:.25rem .5rem;opacity:.6;transition:opacity .15s;}
+    #lb-figure{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3.5rem 14% 3rem;pointer-events:none;gap:.75rem;}
+    #lb-img{max-width:100%;max-height:80vh;object-fit:contain;border-radius:4px;user-select:none;}
+    #lb-cap{color:rgba(255,255,255,.55);font-size:.85rem;text-align:center;max-width:55ch;line-height:1.5;}
+    #lb-close{position:absolute;top:.6rem;right:1rem;z-index:3;background:none;border:none;color:#fff;font-size:2.2rem;line-height:1;cursor:pointer;padding:.25rem .5rem;opacity:.7;transition:opacity .15s;}
     #lb-close:hover{opacity:1;}
-    #lb-prev,#lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);color:#fff;font-size:2.5rem;cursor:pointer;padding:.4rem .9rem;border-radius:6px;transition:background .15s;line-height:1;user-select:none;z-index:2;}
-    #lb-prev{left:.75rem;}#lb-next{right:.75rem;}
-    #lb-prev:hover,#lb-next:hover{background:rgba(255,26,26,.35);}
-    #lb-img{cursor:pointer;}
-    @media(max-width:600px){#lb-prev,#lb-next{font-size:1.8rem;padding:.3rem .6rem;}}
+    #lb-counter{position:absolute;top:.85rem;left:50%;transform:translateX(-50%);z-index:3;color:rgba(255,255,255,.45);font-size:.75rem;font-family:monospace;white-space:nowrap;pointer-events:none;}
+    #lb-prev,#lb-next{position:absolute;top:0;height:100%;width:13%;z-index:2;background:transparent;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);font-size:3rem;transition:color .15s,background .15s;padding:0;}
+    #lb-prev{left:0;}#lb-next{right:0;}
+    #lb-prev:hover,#lb-next:hover{color:#fff;background:rgba(255,26,26,.18);}
+    @media(max-width:600px){#lb-prev,#lb-next{width:18%;font-size:2.2rem;}#lb-figure{padding:3.5rem 18% 3rem;}}
     .gallery-item{cursor:pointer;}
     .gallery-item img{transition:opacity .2s;}
     .gallery-item:hover img{opacity:.82;}
@@ -380,13 +379,13 @@
   <!-- Lightbox -->
   <div id="lb" role="dialog" aria-modal="true" aria-label="Galeria de fotos" hidden>
     <button id="lb-close" aria-label="Fechar">&times;</button>
+    <div id="lb-counter"></div>
     <button id="lb-prev" aria-label="Foto anterior">&#8249;</button>
     <figure id="lb-figure">
       <img id="lb-img" src="" alt="" />
       <figcaption id="lb-cap"></figcaption>
     </figure>
     <button id="lb-next" aria-label="Próxima foto">&#8250;</button>
-    <div id="lb-counter"></div>
   </div>
   <script>
   (function(){
@@ -394,7 +393,8 @@
         lbImg=document.getElementById('lb-img'),
         lbCap=document.getElementById('lb-cap'),
         lbCounter=document.getElementById('lb-counter'),
-        items=[],cur=0,touchX=0;
+        items=[],cur=0,
+        touchStartX=0,touchStartY=0,touchMoved=false;
 
     function groupOf(el){
       var g=el.closest('.gallery');
@@ -417,27 +417,43 @@
       document.body.classList.remove('no-scroll');
       lbImg.src='';
     }
+
     document.querySelectorAll('[data-lightbox]').forEach(function(fig){
       fig.addEventListener('click',function(){open(fig);});
     });
     document.getElementById('lb-close').addEventListener('click',close);
-    document.getElementById('lb-prev').addEventListener('click',function(){show(cur-1);});
-    document.getElementById('lb-next').addEventListener('click',function(){show(cur+1);});
-    document.getElementById('lb-img').addEventListener('click',function(e){
-      var r=this.getBoundingClientRect();
-      e.clientX<r.left+r.width/2?show(cur-1):show(cur+1);
+    document.getElementById('lb-prev').addEventListener('click',function(e){e.stopPropagation();show(cur-1);});
+    document.getElementById('lb-next').addEventListener('click',function(e){e.stopPropagation();show(cur+1);});
+
+    /* fechar clicando no fundo escuro */
+    lb.addEventListener('click',function(e){
+      if(e.target===lb)close();
     });
-    lb.addEventListener('click',function(e){if(e.target===lb)close();});
+
+    /* teclado */
     document.addEventListener('keydown',function(e){
       if(lb.hidden)return;
       if(e.key==='Escape')close();
       if(e.key==='ArrowLeft')show(cur-1);
       if(e.key==='ArrowRight')show(cur+1);
     });
-    lb.addEventListener('touchstart',function(e){touchX=e.touches[0].clientX;},{passive:true});
+
+    /* swipe mobile — detecta direção no touchmove e age no touchend */
+    lb.addEventListener('touchstart',function(e){
+      touchStartX=e.touches[0].clientX;
+      touchStartY=e.touches[0].clientY;
+      touchMoved=false;
+    },{passive:true});
+    lb.addEventListener('touchmove',function(e){
+      touchMoved=true;
+    },{passive:true});
     lb.addEventListener('touchend',function(e){
-      var dx=e.changedTouches[0].clientX-touchX;
-      if(Math.abs(dx)>50){dx<0?show(cur+1):show(cur-1);}
+      if(!touchMoved)return;
+      var dx=e.changedTouches[0].clientX-touchStartX;
+      var dy=e.changedTouches[0].clientY-touchStartY;
+      if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>40){
+        dx<0?show(cur+1):show(cur-1);
+      }
     },{passive:true});
   })();
   </script>
